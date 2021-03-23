@@ -19,7 +19,7 @@ public class ObjectTestForm {
             userNumber = "8005553535",
             monthOfBirth = "8",
             yearOfBirth = "1980",
-            //день хз
+            dayOfBirth = "003",
             subject1 = "arts",
             hobby = "Music",
             picture = "joka.jpg",
@@ -47,7 +47,7 @@ public class ObjectTestForm {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOptionByValue(monthOfBirth);
         $(".react-datepicker__year-select").selectOptionByValue(yearOfBirth);
-        $(".react-datepicker__day.react-datepicker__day--003").click();
+        $(".react-datepicker__day.react-datepicker__day--" + dayOfBirth).click();
         $("#subjectsInput").setValue(subject1).pressEnter();
         $(byText(hobby)).click();
         $("#uploadPicture").uploadFromClasspath(picture);
@@ -68,7 +68,7 @@ public class ObjectTestForm {
                 text(currentAddress),
                 text(state + " " + city));
 
-        sleep(5000);
+        sleep(3000);
     }
 
 }

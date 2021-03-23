@@ -15,8 +15,9 @@ public class ObjectTest {
     @Test
     void fillForm() {
         ObjectForm.openPage();
-        ObjectForm.fillForm();
-        ObjectForm.checkData();
-
+        ObjectForm
+                .fillForm()
+                .checkData();
+            // попробовал оба варианта чтобы разобратся, все понятно теперь.
     }
 }

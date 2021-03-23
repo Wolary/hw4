@@ -7,15 +7,15 @@ import static com.codeborne.selenide.Selenide.*;
 public class ObjectForm {
 
     //ТестДату лучше тут не размещать
-    String  site = "https://demoqa.com/automation-practice-form",
+   private String  site = "https://demoqa.com/automation-practice-form",
             firstName = "Boka",
             lastName  = "Joka",
             userEmail = "legenda@mir.com",
             gender = "Other",
             userNumber = "8005553535",
-            monthOfBirth = "8",
-            yearOfBirth = "1980",
-            dayOfBirth = "003",
+            monthBirth = "8",
+            yearBirth = "1980",
+            dayBirth = "003",
             subject1 = "arts",
             hobby = "Music",
             picture = "joka.jpg",
@@ -26,18 +26,16 @@ public class ObjectForm {
     public void openPage() {
         open(site);
 
+
     }
 
-    public void fillForm() {
+    public ObjectForm fillForm() {
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(userEmail);
         $(byText(gender)).click();
         $("#userNumber").setValue(userNumber);
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOptionByValue(monthOfBirth);
-        $(".react-datepicker__year-select").selectOptionByValue(yearOfBirth);
-        $(".react-datepicker__day.react-datepicker__day--" + dayOfBirth).click();
+        setData(yearBirth, monthBirth, dayBirth);
         $("#subjectsInput").setValue(subject1).pressEnter();
         $(byText(hobby)).click();
         $("#uploadPicture").uploadFromClasspath(picture);
@@ -45,6 +43,14 @@ public class ObjectForm {
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
         $("#submit").click();
+        return this;
+    }
+
+    public void setData (String year, String month, String day ) {
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOptionByValue(month);
+        $(".react-datepicker__year-select").selectOptionByValue(year);
+        $(".react-datepicker__day.react-datepicker__day--" + day).click();
 
     }
 

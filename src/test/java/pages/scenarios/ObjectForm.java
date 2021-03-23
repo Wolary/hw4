@@ -1,27 +1,31 @@
 package pages.scenarios;
 
+import com.github.javafaker.Faker;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ObjectForm {
+    Faker faker = new Faker();
 
     //ТестДату лучше тут не размещать
-   private String  site = "https://demoqa.com/automation-practice-form",
-            firstName = "Boka",
-            lastName  = "Joka",
-            userEmail = "legenda@mir.com",
+   private String site = "https://demoqa.com/automation-practice-form",
+            firstName = faker.name().firstName(),
+            lastName  = faker.name().lastName(),
+            userEmail = faker.internet().emailAddress(),
             gender = "Other",
-            userNumber = "8005553535",
+            userNumber = faker.number().digits(10), //работа с фейкером в целом понятна, не делал на дату, так как придется городить огромный огород с проверкой даты.
             monthBirth = "8",
             yearBirth = "1980",
             dayBirth = "003",
             subject1 = "arts",
             hobby = "Music",
             picture = "joka.jpg",
-            currentAddress = "Russia, Krasnodar, Krasnaya 5",
+            currentAddress = faker.address().fullAddress(),
             state = "ncr",
             city = "gurgaon";
+
 
     public void openPage() {
         open(site);

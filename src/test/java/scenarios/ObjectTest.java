@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import pages.ObjectForm;
 
 public class ObjectTest {
-    pages.ObjectForm ObjectForm = new ObjectForm();
+    pages.ObjectForm objectForm = new ObjectForm();
 
     @BeforeAll
     static void setup() {
@@ -15,7 +15,7 @@ public class ObjectTest {
 
     @Test
     void fillForm() {
-        ObjectForm
+        objectForm
                 .openPage()
                 .fillForm()
                 .checkData();

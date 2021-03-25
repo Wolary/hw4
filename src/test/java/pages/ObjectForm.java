@@ -1,4 +1,4 @@
-package pages.scenarios;
+package pages;
 
 import com.github.javafaker.Faker;
 
@@ -27,8 +27,9 @@ public class ObjectForm {
             city = "gurgaon";
 
 
-    public void openPage() {
+    public ObjectForm openPage() {
         open(site);
+        return this;
 
 
     }
@@ -69,8 +70,5 @@ public class ObjectForm {
                 text(picture),
                 text(currentAddress),
                 text(state + " " + city));
-
-        sleep(3000);
-
     }
 }

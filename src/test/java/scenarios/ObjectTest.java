@@ -1,11 +1,12 @@
-package pages.scenarios;
+package scenarios;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.ObjectForm;
 
 public class ObjectTest {
-    ObjectForm ObjectForm = new ObjectForm();
+    pages.ObjectForm ObjectForm = new ObjectForm();
 
     @BeforeAll
     static void setup() {
@@ -14,10 +15,9 @@ public class ObjectTest {
 
     @Test
     void fillForm() {
-        ObjectForm.openPage();
         ObjectForm
+                .openPage()
                 .fillForm()
                 .checkData();
-            // попробовал оба варианта чтобы разобратся, все понятно теперь.
     }
 }

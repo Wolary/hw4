@@ -30,8 +30,6 @@ public class ObjectForm {
     public ObjectForm openPage() {
         open(site);
         return this;
-
-
     }
 
     public ObjectForm fillForm() {
